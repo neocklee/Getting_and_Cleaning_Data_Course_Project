@@ -3,14 +3,11 @@
 dfXTrain <- read.table("./train/X_train.txt")
 dfXTest <- read.table("./test/X_test.txt")
 dfXTT <- rbind( dfXTrain, dfXTest)
-head(dfXTT)
-
 
 # Each row identifies the subject 
 dfSTrain <- read.table("train/subject_train.txt")
 dfSTest <- read.table("test/subject_test.txt")
 dfSTT <- rbind(dfSTrain, dfSTest)
-#head(dfSTT)
 
 # Training and Test Labels
 dfLTrain <- read.table("./train/y_train.txt")
@@ -34,11 +31,11 @@ names(dfLTT) <- "activity"
 # 4. Appropriately labels the data set with descriptive variable names. 
 names(dfSTT) <- "subject"
 clnDataSet <- cbind(dfSTT, dfLTT, dfXTT)
-write.table(clnDataSet, "mergedCleanData.txt",row.name=FALSE)
+# write.table(clnDataSet, "mergedCleanData.txt",row.name=FALSE)
 
 # 5. From the data set in step 4, creates a second, 
 # independent tidy data set with the average of each variable 
 # for each activity and each subject.
 numCols = ncol(clnDataSet)
-df <- aggregate(clnDataSet[,3:numCols], by = list(subject=clnDataSet$subject,activity=clnDataSet$activity), FUN = mean )
-write.table(df, "step5DataSet.txt",row.name=FALSE)
+dfAvg <- aggregate(clnDataSet[,3:numCols], by = list(subject=clnDataSet$subject,activity=clnDataSet$activity), FUN = mean )
+write.table(dfAvg, "step5DataSet.txt",row.name=FALSE)
