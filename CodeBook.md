@@ -32,4 +32,4 @@ At this stage dfSTT will be assined with column name "subject"
 * clnDataSet - merged data frame of dfSTT, dfLTT, dfXTT with descriptive variable names.
 
 ### From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-Writes df data frame with average of each measurement for each activity and each subject to the ouputfile - step5DataSet.txt
+Writes dfAvg data frame with average of each measurement for each activity and each subject to the ouputfile - step5DataSet.txt
